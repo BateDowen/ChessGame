@@ -1,0 +1,73 @@
+body{
+    font-family: Consolas;
+    background-color: rgb(252, 221, 181);
+}
+
+.main{
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    background-color: rgb(8, 232, 158);
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+}
+.press{
+    position: absolute;
+    left: 25%;
+    top: 35%;
+    background-color:rgb(120, 232, 8);
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 25px;
+    border-radius: 5px;
+    
+}
+.press:hover{
+    background-color: rgb(122, 10, 202);
+    cursor: pointer;
+}
+.table{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 7px;
+
+}
+table,tr,td{
+    border: 1px solid black;
+    border-collapse: initial;
+
+}
+.X,.O{
+   margin-left: 28%;
+   width: 50px;
+   height: 30px;
+   text-align: center;
+   background-color: darkviolet;
+   border: 1px solid black;
+   margin-top: 5px;
+   margin-bottom: 10px;
+   border-radius: 7px;
+
+}
+.X:hover,.O:hover{
+    background-color: bisque;
+    cursor: pointer;
+}
+.peshka{
+    position: absolute;
+    margin-left: 14%;
+    margin-top: -2%;
+
+}
+td:hover{
+    background-color: rgb(94, 91, 91);
+    cursor: pointer;
+
+}
+.hidden{
+    display: none;
+}
