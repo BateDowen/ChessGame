@@ -86,39 +86,77 @@ function buttonEvent() {
                 isX = true;
         
             };
-           let isEmpty1 = isEmptyString(firstRoowArr[0],firstRoowArr[1],firstRoowArr[2])
+            let isEmpty1 = isEmptyString(firstRoowArr[0],firstRoowArr[1],firstRoowArr[2])
             if (isEmpty1 != true) {
-
                 if (detectCollision(firstRoowArr[0],firstRoowArr[1],firstRoowArr[2])) {
                     console.log('Win FirstRow');
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
+   
                 };
             }
             let isEmpty2 = isEmptyString(secondRowArr[0],secondRowArr[1],secondRowArr[2])
             if (isEmpty2 != true) {
                 if (detectCollision(secondRowArr[0],secondRowArr[1],secondRowArr[2])) {
                     console.log('Win SecondRow');
-                    
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
                 };
             }
             let isEmpty3 = isEmptyString(thirdRowArr[0],thirdRowArr[1],thirdRowArr[2])
             if (isEmpty3 != true) {
                 if (detectCollision(thirdRowArr[0],thirdRowArr[1],thirdRowArr[2])) {
                     console.log('Win ThirdRow');
-                    
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
                 };
             };
             let isEmpty4 = isEmptyString(firstRoowArr[0],secondRowArr[1],thirdRowArr[2])
             if (isEmpty4 != true) {
                 if (detectCollision(firstRoowArr[0],secondRowArr[1],thirdRowArr[2])) {
                     console.log('Win CrossRow');
-                    
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
                 };
             };
             let isEmpty5 = isEmptyString(thirdRowArr[0],secondRowArr[1],firstRoowArr[2])
             if (isEmpty5 != true) {
                 if (detectCollision(thirdRowArr[0],secondRowArr[1],firstRoowArr[2])) {
                     console.log('Win CrossRow2');
-                    
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
+                };
+            };
+            let isEmpty6 = isEmptyString(thirdRowArr[0],secondRowArr[0],firstRoowArr[0])
+            if (isEmpty6 != true) {
+                if (detectCollision(thirdRowArr[0],secondRowArr[0],firstRoowArr[0])) {
+                    console.log('Win FirsrRows1');
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
+                };
+            };
+            let isEmpty7 = isEmptyString(thirdRowArr[1],secondRowArr[1],firstRoowArr[1])
+            if (isEmpty7 != true) {
+                if (detectCollision(thirdRowArr[1],secondRowArr[1],firstRoowArr[1])) {
+                    console.log('Win FirsrRows2');
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
+                };
+            };
+            let isEmpty8 = isEmptyString(thirdRowArr[2],secondRowArr[2],firstRoowArr[2])
+            if (isEmpty8 != true) {
+                if (detectCollision(thirdRowArr[2],secondRowArr[2],firstRoowArr[2])) {
+                    console.log('Win FirsrRows3');
+                    document.querySelector('.table').remove();
+                    document.querySelector('.press').classList.remove('hidden');
+                    document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
                 };
             };
         });

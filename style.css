@@ -71,3 +71,6 @@ td:hover{
 .hidden{
     display: none;
 }
+.win{
+    background-color: black;
+}
