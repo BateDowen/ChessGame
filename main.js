@@ -5,7 +5,6 @@ function pressToPlay() {
     pressBtn.addEventListener('click',(e)=>{
         e.currentTarget.classList.add('hidden');
         let table = document.querySelector('table');
-        table.classList.remove('hidden');
         mainDiv.appendChild(table);
         document.querySelector('.O').disabled = false;
         document.querySelector('.X').disabled = false;
@@ -15,23 +14,32 @@ function pressToPlay() {
 
 }
 pressToPlay()
-
 function buttonEvent() {
     let tdElements = document.querySelectorAll('td');
     let xBtn = document.querySelector('.X');
     let oBtn = document.querySelector('.O');
     let isX = Boolean;
-
+    let table = document.querySelector('table');
+    
+//Choose X or O
     
     xBtn.addEventListener('click', (e) => {
         e.currentTarget.disabled = true;
+        oBtn.disabled = true;
         e.currentTarget.style.backgroundColor = 'bisque';
+        oBtn.style.backgroundColor = 'bisque';
+        table.classList.remove('hidden');
+
         isX = true
        
     });
     oBtn.addEventListener('click', (e)=> {
         e.currentTarget.disabled = true;
+        xBtn.disabled = true;
         e.currentTarget.style.backgroundColor = 'bisque';
+        xBtn.style.backgroundColor = 'bisque';
+        table.classList.remove('hidden');
+
         isX = false;
        
     });
@@ -46,15 +54,30 @@ function buttonEvent() {
         
     tdElements.forEach(x => {
         let divOfPeshki = createDiv();
-        
+
+        let firstRow = document.getElementsByClassName('firstRow');
+            let firstRoowArr = []
+            for(let child of firstRow[0].children){
+                firstRoowArr.push(child)
+            };
+        let secondRow = document.getElementsByClassName('secondRow');
+            let secondRowArr = []
+            for(let child of secondRow[0].children){
+                secondRowArr.push(child)
+            };
+        let thirdRow = document.getElementsByClassName('thirdRow');
+            let thirdRowArr = []
+            for(let child of thirdRow[0].children){
+                thirdRowArr.push(child)
+            };
         x.addEventListener('click', (element) =>{
             
-            
             if ((element.target.children).length < 1) {
-                element.target.appendChild(divOfPeshki)
+                element.target.appendChild(divOfPeshki);
             };
            
             if (isX) {
+                
                 divOfPeshki.innerText = xBtn.innerText; 
                 isX = false;
         
@@ -63,12 +86,64 @@ function buttonEvent() {
                 isX = true;
         
             };
-            
-        });
-        
-        
-        });
+           let isEmpty1 = isEmptyString(firstRoowArr[0],firstRoowArr[1],firstRoowArr[2])
+            if (isEmpty1 != true) {
 
+                if (detectCollision(firstRoowArr[0],firstRoowArr[1],firstRoowArr[2])) {
+                    console.log('Win FirstRow');
+                };
+            }
+            let isEmpty2 = isEmptyString(secondRowArr[0],secondRowArr[1],secondRowArr[2])
+            if (isEmpty2 != true) {
+                if (detectCollision(secondRowArr[0],secondRowArr[1],secondRowArr[2])) {
+                    console.log('Win SecondRow');
+                    
+                };
+            }
+            let isEmpty3 = isEmptyString(thirdRowArr[0],thirdRowArr[1],thirdRowArr[2])
+            if (isEmpty3 != true) {
+                if (detectCollision(thirdRowArr[0],thirdRowArr[1],thirdRowArr[2])) {
+                    console.log('Win ThirdRow');
+                    
+                };
+            };
+            let isEmpty4 = isEmptyString(firstRoowArr[0],secondRowArr[1],thirdRowArr[2])
+            if (isEmpty4 != true) {
+                if (detectCollision(firstRoowArr[0],secondRowArr[1],thirdRowArr[2])) {
+                    console.log('Win CrossRow');
+                    
+                };
+            };
+            let isEmpty5 = isEmptyString(thirdRowArr[0],secondRowArr[1],firstRoowArr[2])
+            if (isEmpty5 != true) {
+                if (detectCollision(thirdRowArr[0],secondRowArr[1],firstRoowArr[2])) {
+                    console.log('Win CrossRow2');
+                    
+                };
+            };
+        });
+        
+        
+    });
 
 }
-buttonEvent()
+buttonEvent();
+function detectCollision(objectA,objectB,objectC) {
+    let first = objectA;
+    let second = objectB;
+    let third = objectC;
+    
+
+    let hasCollision = (((first.innerText == second.innerText) && (second.innerText == first.innerText) && (third.innerText == second.innerText)))
+
+    return hasCollision
+}
+function isEmptyString(objectA,objectB,objectC) {
+    let first = objectA;
+    let second = objectB;
+    let third = objectC;
+
+    let isEmpty = ((first.innerText == '') && (second.innerText == '') && (third.innerText == ''));
+
+    return isEmpty
+}
