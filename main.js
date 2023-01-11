@@ -122,7 +122,7 @@ function buttonEvent() {
                     document.querySelector('.press').classList.remove('hidden');
                     document.querySelector('.press').innerText = `${divOfPeshki.innerText} Win`;
                 };
-            };
+            }; 
             let isEmpty5 = isEmptyString(thirdRowArr[0],secondRowArr[1],firstRoowArr[2])
             if (isEmpty5 != true) {
                 if (detectCollision(thirdRowArr[0],secondRowArr[1],firstRoowArr[2])) {
@@ -163,7 +163,7 @@ function buttonEvent() {
         
         
     });
-
+ 
 }
 buttonEvent();
 function detectCollision(objectA,objectB,objectC) {
@@ -175,7 +175,8 @@ function detectCollision(objectA,objectB,objectC) {
     let hasCollision = (((first.innerText == second.innerText) && (second.innerText == first.innerText) && (third.innerText == second.innerText)))
 
     return hasCollision
-}
+};
+
 function isEmptyString(objectA,objectB,objectC) {
     let first = objectA;
     let second = objectB;
@@ -184,4 +185,4 @@ function isEmptyString(objectA,objectB,objectC) {
     let isEmpty = ((first.innerText == '') && (second.innerText == '') && (third.innerText == ''));
 
     return isEmpty
-}
+};
